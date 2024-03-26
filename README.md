@@ -16,7 +16,7 @@ Please ensure that your code adheres to our coding standards and includes approp
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE.txt).
 
 ## Contact
 
