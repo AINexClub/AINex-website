@@ -1,0 +1,26 @@
+{
+  "name": "ainex-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MoncefDj/AINex-website.git"
+  },
+  "keywords": [],
+  "author": "Moncef Djezzar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MoncefDj/AINex-website/issues"
+  },
+  "homepage": "https://github.com/MoncefDj/AINex-website#readme",
+  "devDependencies": {
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.12",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.4.3"
+  }
+}
