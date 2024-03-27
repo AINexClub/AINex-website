@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/MoncefDj/AINex-website#readme",
   "devDependencies": {
+    "daisyui": "^4.9.0",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.12",
     "tailwindcss": "^3.4.1",

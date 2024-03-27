@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html data-theme="winter">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,67 +10,55 @@
   </head>
   <body>
     <div id="root">
-
-      <!-- <nav id="main-nav" class="">
-        <a href="/" onclick="route()">Home</a>
-        <a href="/about" onclick="route()">About</a>
-        <a href="/members" onclick="route()">Members</a>
-        <a href="/events" onclick="route()">Events</a>
-        <a href="/gallery" onclick="route()">Gallery</a>
-        <a href="/contact" onclick="route()">Contact</a>
-        <a href="/news" onclick="route()">News</a>
-        <a href="/login" onclick="route()">Login</a>
-      </nav> -->
-
-      <nav id="main-nav" class="flex justify-center bg-gray-800 p-2">
-        <div class="ml-10 flex items-baseline space-x-4">
-          <a
-            href="/"
-            onclick="route()"
-            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-            >Home</a
+      <nav id="main-nav" class="navbar bg-base-100">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-base-100 p-2 shadow"
+            >
+              <li><a class="m-0.5" href="/about" onclick="route()">About</></li>
+              <li><a class="m-0.5" href="/members" onclick="route()">Members</></li>
+              <li><a class="m-0.5" href="/events" onclick="route()">Events</></li>
+              <li><a class="m-0.5" href="/gallery" onclick="route()">Gallery</></li>
+              <li><a class="m-0.5" href="/contact" onclick="route()">Contact</></li>
+              <li><a class="m-0.5" href="/news" onclick="route()">News</></li>
+            </ul>
+          </div>
+          <a class="btn btn-ghost text-xl" href="/" onclick="route()"
+            >AI Nexus</a
           >
-          <a
-            href="/about"
-            onclick="route()"
-            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-            >About</a
-          >
-          <a
-            href="/members"
-            onclick="route()"
-            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-            >Members</a
-          >
-          <a
-            href="/events"
-            onclick="route()"
-            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-            >Events</a
-          >
-          <a
-            href="/gallery"
-            onclick="route()"
-            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-            >Gallery</a
-          >
-          <a
-            href="/contact"
-            onclick="route()"
-            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-            >Contact</a
-          >
-          <a
-            href="/news"
-            onclick="route()"
-            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-            >News</a
-          >
-          <a
-            href="/login"
-            onclick="route()"
-            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-            >Login</a
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1">
+            <li><a class="m-1" href="/about" onclick="route()">About</a></li>
+            <li><a class="m-1" href="/members" onclick="route()">Members</a></li>
+            <li><a class="m-1" href="/events" onclick="route()">Events</a></li>
+            <li><a class="m-1" href="/gallery" onclick="route()">Gallery</a></li>
+            <li><a class="m-1" href="/contact" onclick="route()">Contact</a></li>
+            <li><a class="m-1" href="/news" onclick="route()">News</a></li>
+          </ul>
+        </div>
+        <div class="navbar-end">
+          <a class="btn m-1" href="/login" onclick="route()">Log in</a>
+          <a class="btn btn-primary m-1" href="/signup" onclick="route()"
+            >Sign up</a
           >
         </div>
       </nav>
