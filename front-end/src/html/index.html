@@ -9,7 +9,75 @@
     <link rel="stylesheet" href="../css/output.css" />
   </head>
   <body>
-    <h1 class="text-center text-3xl font-bold underline">AI Nexus Club!</h1>
-    <script src="../js/script.js" async defer></script>
+    <div id="root">
+
+      <!-- <nav id="main-nav" class="">
+        <a href="/" onclick="route()">Home</a>
+        <a href="/about" onclick="route()">About</a>
+        <a href="/members" onclick="route()">Members</a>
+        <a href="/events" onclick="route()">Events</a>
+        <a href="/gallery" onclick="route()">Gallery</a>
+        <a href="/contact" onclick="route()">Contact</a>
+        <a href="/news" onclick="route()">News</a>
+        <a href="/login" onclick="route()">Login</a>
+      </nav> -->
+
+      <nav id="main-nav" class="flex justify-center bg-gray-800 p-2">
+        <div class="ml-10 flex items-baseline space-x-4">
+          <a
+            href="/"
+            onclick="route()"
+            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+            >Home</a
+          >
+          <a
+            href="/about"
+            onclick="route()"
+            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+            >About</a
+          >
+          <a
+            href="/members"
+            onclick="route()"
+            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+            >Members</a
+          >
+          <a
+            href="/events"
+            onclick="route()"
+            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+            >Events</a
+          >
+          <a
+            href="/gallery"
+            onclick="route()"
+            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+            >Gallery</a
+          >
+          <a
+            href="/contact"
+            onclick="route()"
+            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+            >Contact</a
+          >
+          <a
+            href="/news"
+            onclick="route()"
+            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+            >News</a
+          >
+          <a
+            href="/login"
+            onclick="route()"
+            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+            >Login</a
+          >
+        </div>
+      </nav>
+
+      <div id="main-page"></div>
+    </div>
+
+    <script src="../js/router.js"></script>
   </body>
 </html>
