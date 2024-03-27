@@ -12,6 +12,7 @@ const routes: Routes = {
   "/contact": "/front-end/src/html/pages/contact.html",
   "/news": "/front-end/src/html/pages/news.html",
   "/login": "/front-end/src/html/pages/login.html",
+  "/signup": "/front-end/src/html/pages/signup.html",
 };
 
 const route = (event: Event) => {
