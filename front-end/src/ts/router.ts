@@ -5,8 +5,6 @@ interface Routes {
 const routes: Routes = {
   404: "/front-end/src/html/pages/404.html",
   "/": "/front-end/src/html/pages/home.html",
-  "/about": "/front-end/src/html/pages/about.html",
-  "/members": "/front-end/src/html/pages/members.html",
   "/events": "/front-end/src/html/pages/events.html",
   "/gallery": "/front-end/src/html/pages/gallery.html",
   "/contact": "/front-end/src/html/pages/contact.html",
