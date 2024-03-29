@@ -3,16 +3,24 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
+    <title>404</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../../css/output.css" />
   </head>
-  <body>
-    <div class="flex h-96 items-center justify-center">
-      <h1 class="text-9xl">404</h1>
+  <body class="bg-base-200">
+    <div class="hero min-h-[85vh]">
+      <div class="hero-content text-center">
+        <div class="max-w-md">
+          <h1 class="text-9xl font-bold text-error">404</h1>
+          <p class="py-6 text-2xl font-bold">Page Not Found</p>
+          <p class="mb-6">
+            Oops! The page you're looking for doesn't seem to exist.
+          </p>
+          <a href="/" class="btn btn-primary" onclick="route()">Go Back Home</a>
+        </div>
+      </div>
     </div>
-
-    <script src="" async defer></script>
+    <script src="../js/router.js"></script>
   </body>
 </html>
