@@ -9,62 +9,121 @@
     <link rel="stylesheet" href="../../css/output.css" />
   </head>
   <body>
-    <div class="hero-container bg-base-200 px-4 py-8">
-      <h1 class="mb-8 text-4xl font-bold">Upcoming Events</h1>
-      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        <div class="card bg-base-100 shadow-xl">
-          <figure>
-            <img
-              src="/front-end/src/images/Collaborate.png"
-              alt="Event Image"
-              class="h-60 w-60"
-            />
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title">Event Name</h2>
-            <p>Event description goes here.</p>
-            <div class="card-actions">
-              <div class="badge badge-primary">Date</div>
-              <div class="badge badge-accent">Location</div>
-            </div>
+    <div class="h-[85vh] snap-y snap-mandatory overflow-y-scroll">
+      <!-- Participate Section -->
+      <div
+        class="snap-start bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-10 py-16"
+      >
+        <div class="container mx-auto">
+          <h2 class="mb-8 text-center text-4xl font-bold text-white">
+            Participate in our Upcoming Event
+          </h2>
+          <div class="flex justify-center">
+            <label
+              for="participate-modal"
+              class="hover:btn-wide-active btn btn-primary btn-wide transform transition-all duration-300 ease-in-out hover:scale-105"
+            >
+              <span class="mr-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+                  />
+                </svg>
+              </span>
+              Participate Now
+            </label>
           </div>
         </div>
-        <div class="card bg-base-100 shadow-xl">
-          <figure>
-            <img
-              src="/front-end/src/images/Explore.png"
-              alt="Event Image"
-              class="h-60 w-60"
-            />
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title">Event Name</h2>
-            <p>Event description goes here.</p>
-            <div class="card-actions">
-              <div class="badge badge-primary">Date</div>
-              <div class="badge badge-accent">Location</div>
+      </div>
+
+      <div class="hero-container snap-start bg-base-200 p-10">
+        <h1 class="mb-8 text-4xl font-bold">Upcoming Events</h1>
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div class="card bg-base-100 shadow-xl">
+            <figure>
+              <img
+                src="/front-end/src/images/Collaborate.png"
+                alt="Event Image"
+                class="h-[34vh] w-[34vh]"
+              />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">Event Name</h2>
+              <p>Event description goes here.</p>
+              <div class="card-actions">
+                <div class="badge badge-primary">Date</div>
+                <div class="badge badge-accent">Location</div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="card bg-base-100 shadow-xl">
-          <figure>
-            <img
-              src="/front-end/src/images/Guest-speakers.png"
-              alt="Event Image"
-              class="h-60 w-60"
-            />
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title">Event Name</h2>
-            <p>Event description goes here.</p>
-            <div class="card-actions">
-              <div class="badge badge-primary">Date</div>
-              <div class="badge badge-accent">Location</div>
+          <div class="card bg-base-100 shadow-xl">
+            <figure>
+              <img
+                src="/front-end/src/images/Explore.png"
+                alt="Event Image"
+                class="h-[34vh] w-[34vh]"
+              />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">Event Name</h2>
+              <p>Event description goes here.</p>
+              <div class="card-actions">
+                <div class="badge badge-primary">Date</div>
+                <div class="badge badge-accent">Location</div>
+              </div>
+            </div>
+          </div>
+          <div class="card bg-base-100 shadow-xl">
+            <figure>
+              <img
+                src="/front-end/src/images/Guest-speakers.png"
+                alt="Event Image"
+                class="h-[34vh] w-[34vh]"
+              />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">Event Name</h2>
+              <p>Event description goes here.</p>
+              <div class="card-actions">
+                <div class="badge badge-primary">Date</div>
+                <div class="badge badge-accent">Location</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Modal -->
+    <input type="checkbox" id="participate-modal" class="modal-toggle" />
+    <div class="modal">
+      <div class="modal-box relative">
+        <label
+          for="participate-modal"
+          class="btn btn-circle btn-sm absolute right-2 top-2"
+          >✕</label
+        >
+        <h3 class="text-lg font-bold">Enter your email to participate</h3>
+        <div class="modal-action">
+          <input
+            type="email"
+            placeholder="Your email"
+            class="input input-bordered w-full"
+          />
+          <button class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+
     <script src="" async defer></script>
   </body>
 </html>
