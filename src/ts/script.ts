@@ -1,3 +1,11 @@
+import { createClient } from "@supabase/supabase-js";
+
+const supabaseUrl = "https://ojepejzxawymsazrmpdm.supabase.co";
+const supabaseKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9qZXBlanp4YXd5bXNhenJtcGRtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTE4MTUxMzQsImV4cCI6MjAyNzM5MTEzNH0.DqTfpHgOjeJfE7E2WH_pE2ZUlKXSVGAWyXAvpH4BtvE";
+
+const supabase = createClient(supabaseUrl, supabaseKey);
+
 interface Routes {
   [key: string]: string;
 }
@@ -43,7 +51,7 @@ const handleLocation = async () => {
   }
 };
 
-const executeEventsScript = () => {
+const executeEventsScript = async () => {
   interface EventItem {
     title: string;
     description: string;
@@ -52,29 +60,36 @@ const executeEventsScript = () => {
     imageSrc: string;
   }
 
-  const eventItems: EventItem[] = [
-    {
-      title: "Event Name",
-      description: "Event description goes here.",
-      date: "Date",
-      location: "Location",
-      imageSrc: "/src/images/Collaborate.png",
-    },
-    {
-      title: "Event Name",
-      description: "Event description goes here.",
-      date: "Date",
-      location: "Location",
-      imageSrc: "/src/images/Explore.png",
-    },
-    {
-      title: "Event Name",
-      description: "Event description goes here.",
-      date: "Date",
-      location: "Location",
-      imageSrc: "/src/images/Guest-speakers.png",
-    },
-  ];
+  // const eventItems: EventItem[] = [
+  //   {
+  //     title: "Event Name",
+  //     description: "Event description goes here.",
+  //     date: "Date",
+  //     location: "Location",
+  //     imageSrc: "/src/images/Collaborate.png",
+  //   },
+  //   {
+  //     title: "Event Name",
+  //     description: "Event description goes here.",
+  //     date: "Date",
+  //     location: "Location",
+  //     imageSrc: "/src/images/Explore.png",
+  //   },
+  //   {
+  //     title: "Event Name",
+  //     description: "Event description goes here.",
+  //     date: "Date",
+  //     location: "Location",
+  //     imageSrc: "/src/images/Guest-speakers.png",
+  //   },
+  // ];
+
+  const { data: eventItems, error } = await supabase.from("events").select("*");
+
+  if (error) {
+    console.error("Error fetching events:", error);
+    return;
+  }
 
   function createEventCard({
     title,
