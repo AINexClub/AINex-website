@@ -2,6 +2,36 @@
 
 This is the official website repository for the AI Nexus club, a community dedicated to exploring and advancing the field of artificial intelligence.
 
+## Getting Started
+
+To get a local copy of the project up and running, follow these steps:
+
+1. Clone the repository:
+
+```CLI
+git clone https://github.com/AINexClub/AINex-website.git
+```
+
+2. Navigate to the project directory:
+
+```CLI
+cd AINex-website
+```
+
+3. Install the required dependencies:
+
+```CLI
+npm install
+```
+
+4. Start the development server:
+
+```CLI
+npm run dev
+```
+
+5. Open your web browser and visit `http://localhost:5173` to see the website in action.
+
 ## Contributing
 
 We welcome contributions to the AI Nexus club website! If you'd like to contribute, please follow these steps:
