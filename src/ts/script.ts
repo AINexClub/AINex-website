@@ -1,3 +1,11 @@
+import { createClient } from "@supabase/supabase-js";
+
+const supabaseUrl = "https://ojepejzxawymsazrmpdm.supabase.co";
+const supabaseKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9qZXBlanp4YXd5bXNhenJtcGRtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTE4MTUxMzQsImV4cCI6MjAyNzM5MTEzNH0.DqTfpHgOjeJfE7E2WH_pE2ZUlKXSVGAWyXAvpH4BtvE";
+
+const supabase = createClient(supabaseUrl, supabaseKey);
+
 interface Routes {
   [key: string]: string;
 }
@@ -43,7 +51,7 @@ const handleLocation = async () => {
   }
 };
 
-const executeEventsScript = () => {
+const executeEventsScript = async () => {
   interface EventItem {
     title: string;
     description: string;
@@ -52,29 +60,36 @@ const executeEventsScript = () => {
     imageSrc: string;
   }
 
-  const eventItems: EventItem[] = [
-    {
-      title: "Event Name",
-      description: "Event description goes here.",
-      date: "Date",
-      location: "Location",
-      imageSrc: "/src/images/Collaborate.png",
-    },
-    {
-      title: "Event Name",
-      description: "Event description goes here.",
-      date: "Date",
-      location: "Location",
-      imageSrc: "/src/images/Explore.png",
-    },
-    {
-      title: "Event Name",
-      description: "Event description goes here.",
-      date: "Date",
-      location: "Location",
-      imageSrc: "/src/images/Guest-speakers.png",
-    },
-  ];
+  // const eventItems: EventItem[] = [
+  //   {
+  //     title: "Event Name",
+  //     description: "Event description goes here.",
+  //     date: "Date",
+  //     location: "Location",
+  //     imageSrc: "/src/images/Collaborate.png",
+  //   },
+  //   {
+  //     title: "Event Name",
+  //     description: "Event description goes here.",
+  //     date: "Date",
+  //     location: "Location",
+  //     imageSrc: "/src/images/Explore.png",
+  //   },
+  //   {
+  //     title: "Event Name",
+  //     description: "Event description goes here.",
+  //     date: "Date",
+  //     location: "Location",
+  //     imageSrc: "/src/images/Guest-speakers.png",
+  //   },
+  // ];
+
+  const { data: eventItems, error } = await supabase.from("events").select("*");
+
+  if (error) {
+    console.error("Error fetching events:", error);
+    return;
+  }
 
   function createEventCard({
     title,
@@ -149,7 +164,7 @@ const executeEventsScript = () => {
   }
 };
 
-const executeHomeScript = () => {
+const executeHomeScript = async () => {
   // members.ts
   interface Member {
     name: string;
@@ -157,19 +172,26 @@ const executeHomeScript = () => {
     imageSrc: string;
   }
 
-  const members: Member[] = [
-    {
-      name: "John Doe",
-      position: "President",
-      imageSrc: "/src/images/Explore.png",
-    },
-    {
-      name: "Jane Smith",
-      position: "Vice President",
-      imageSrc: "/src/images/Explore.png",
-    },
-    // Add more member data objects as needed
-  ];
+  // const members: Member[] = [
+  //   {
+  //     name: "John Doe",
+  //     position: "President",
+  //     imageSrc: "/src/images/Explore.png",
+  //   },
+  //   {
+  //     name: "Jane Smith",
+  //     position: "Vice President",
+  //     imageSrc: "/src/images/Explore.png",
+  //   },
+  //   // Add more member data objects as needed
+  // ];
+
+  const { data: members, error } = await supabase.from("members").select("*");
+
+  if (error) {
+    console.error("Error fetching members:", error);
+    return;
+  }
 
   function createMemberCard(member: Member): string {
     return `
@@ -202,7 +224,7 @@ const executeHomeScript = () => {
   }
 };
 
-const executeGalleryScript = () => {
+const executeGalleryScript = async () => {
   // Define interfaces
   interface CarouselItem {
     id: string;
@@ -240,34 +262,42 @@ const executeGalleryScript = () => {
 `;
   }
 
-  function createGalleryCard({
-    title,
-    description,
-    images,
-  }: GalleryItem): string {
+  // Fetch data from Supabase
+  const { data: galleryItems, error } = await supabase
+    .from("gallery")
+    .select("*");
+
+  if (error) {
+    console.error("Error fetching gallery items:", error);
+    return;
+  }
+
+  function createGalleryCard(galleryItem: GalleryItem): string {
+    const { title, description, images } = galleryItem;
+
     const imageElements = images
       .map(
         (image, index) => `
-  <img src="${image}" class="w-full" alt="Gallery Image ${index + 1}" />
+<img src="${image}" class="w-full" alt="Gallery Image ${index + 1}" />
 `,
       )
       .join("");
 
     return `
-  <div class="card overflow-hidden bg-base-100 shadow-xl">
-    <div class="card-body">
-      <h2 class="card-title">${title}</h2>
-      <p>${description}</p>
-    </div>
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-      ${imageElements}
-    </div>
+<div class="card overflow-hidden bg-base-100 shadow-xl">
+  <div class="card-body">
+    <h2 class="card-title">${title}</h2>
+    <p>${description}</p>
   </div>
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+    ${imageElements}
+  </div>
+</div>
 `;
   }
 
   // Define carousel items
-  const carouselItems: CarouselItem[] = [
+  const carouselItems = [
     {
       id: "slide1",
       content: createHeroContent(
@@ -276,26 +306,18 @@ const executeGalleryScript = () => {
       ),
       nextSlide: createSlideNavigation(undefined, "slide ❯"),
     },
-    {
-      id: "slide2",
+    ...galleryItems.map((item, index) => ({
+      id: `slide${index + 2}`,
       content: `
-    <div class="container mx-auto overflow-y-scroll px-4 py-8">
-      ${createGalleryCard({
-        title: "Gallery Item 1",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        images: [
-          "/src/images/Collaborate.png",
-          "/src/images/Explore.png",
-          "/src/images/Guest-speakers.png",
-        ],
-      })}
-    </div>
-  `,
+  <div class="container mx-auto overflow-y-scroll px-4 py-8">
+    ${createGalleryCard(item)}
+  </div>
+`,
       prevSlide: createSlideNavigation("❮ slide"),
       nextSlide: createSlideNavigation(undefined, "slide ❯"),
-    },
+    })),
     {
-      id: "slide3",
+      id: `slide${galleryItems.length + 2}`,
       content: createHeroContent(
         "Thank You",
         "We appreciate your interest in our gallery. Feel free to explore more!",
@@ -303,6 +325,44 @@ const executeGalleryScript = () => {
       prevSlide: createSlideNavigation("❮ slide"),
     },
   ];
+
+  // // Define carousel items
+  // const carouselItems: CarouselItem[] = [
+  //   {
+  //     id: "slide1",
+  //     content: createHeroContent(
+  //       "Our Gallery",
+  //       "Explore our collection of images showcasing our products, events, and more.",
+  //     ),
+  //     nextSlide: createSlideNavigation(undefined, "slide ❯"),
+  //   },
+  //   {
+  //     id: "slide2",
+  //     content: `
+  //   <div class="container mx-auto overflow-y-scroll px-4 py-8">
+  //     ${createGalleryCard({
+  //       title: "Gallery Item 1",
+  //       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  //       images: [
+  //         "/src/images/Collaborate.png",
+  //         "/src/images/Explore.png",
+  //         "/src/images/Guest-speakers.png",
+  //       ],
+  //     })}
+  //   </div>
+  // `,
+  //     prevSlide: createSlideNavigation("❮ slide"),
+  //     nextSlide: createSlideNavigation(undefined, "slide ❯"),
+  //   },
+  //   {
+  //     id: "slide3",
+  //     content: createHeroContent(
+  //       "Thank You",
+  //       "We appreciate your interest in our gallery. Feel free to explore more!",
+  //     ),
+  //     prevSlide: createSlideNavigation("❮ slide"),
+  //   },
+  // ];
 
   // Render carousel
   function renderCarousel(): string {
