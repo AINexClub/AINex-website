@@ -27,11 +27,12 @@
               AI Nexus is a student club dedicated to exploring the fascinating
               world of artificial intelligence.
             </h1>
-            <button
+            <label
+              for="participate-modal"
               class="hover:btn-wide-active btn btn-primary btn-wide transform transition-all duration-300 ease-in-out hover:scale-105"
             >
               Join us and be part of the AI revolution!
-            </button>
+            </label>
           </div>
         </div>
       </div>
@@ -128,168 +129,12 @@
       <div class="snap-start bg-base-100 p-10 py-16">
         <div class="container mx-auto">
           <h2 class="mb-8 text-center text-3xl font-bold">Meet Our Members</h2>
-          <div class="grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-4">
-            <div class="card bg-base-200 shadow-xl">
-              <figure>
-                <img
-                  src="/front-end/src/images/Explore.png"
-                  alt="Member"
-                  class="rounded-lg"
-                />
-              </figure>
-              <div class="card-body">
-                <h3 class="card-title">John Doe</h3>
-                <p>President</p>
-              </div>
-            </div>
-            <div class="card bg-base-200 shadow-xl">
-              <figure>
-                <img
-                  src="/front-end/src/images/Explore.png"
-                  alt="Member"
-                  class="rounded-lg"
-                />
-              </figure>
-              <div class="card-body">
-                <h3 class="card-title">Jane Smith</h3>
-                <p>Vice President</p>
-              </div>
-            </div>
-            <div class="card bg-base-200 shadow-xl">
-              <figure>
-                <img
-                  src="/front-end/src/images/Explore.png"
-                  alt="Member"
-                  class="rounded-lg"
-                />
-              </figure>
-              <div class="card-body">
-                <h3 class="card-title">John Doe</h3>
-                <p>President</p>
-              </div>
-            </div>
-            <div class="card bg-base-200 shadow-xl">
-              <figure>
-                <img
-                  src="/front-end/src/images/Explore.png"
-                  alt="Member"
-                  class="rounded-lg"
-                />
-              </figure>
-              <div class="card-body">
-                <h3 class="card-title">Jane Smith</h3>
-                <p>Vice President</p>
-              </div>
-            </div>
-            <div class="card bg-base-200 shadow-xl">
-              <figure>
-                <img
-                  src="/front-end/src/images/Explore.png"
-                  alt="Member"
-                  class="rounded-lg"
-                />
-              </figure>
-              <div class="card-body">
-                <h3 class="card-title">John Doe</h3>
-                <p>President</p>
-              </div>
-            </div>
-            <div class="card bg-base-200 shadow-xl">
-              <figure>
-                <img
-                  src="/front-end/src/images/Explore.png"
-                  alt="Member"
-                  class="rounded-lg"
-                />
-              </figure>
-              <div class="card-body">
-                <h3 class="card-title">Jane Smith</h3>
-                <p>Vice President</p>
-              </div>
-            </div>
-            <div class="card bg-base-200 shadow-xl">
-              <figure>
-                <img
-                  src="/front-end/src/images/Explore.png"
-                  alt="Member"
-                  class="rounded-lg"
-                />
-              </figure>
-              <div class="card-body">
-                <h3 class="card-title">John Doe</h3>
-                <p>President</p>
-              </div>
-            </div>
-            <div class="card bg-base-200 shadow-xl">
-              <figure>
-                <img
-                  src="/front-end/src/images/Explore.png"
-                  alt="Member"
-                  class="rounded-lg"
-                />
-              </figure>
-              <div class="card-body">
-                <h3 class="card-title">Jane Smith</h3>
-                <p>Vice President</p>
-              </div>
-            </div>
-            <div class="card bg-base-200 shadow-xl">
-              <figure>
-                <img
-                  src="/front-end/src/images/Explore.png"
-                  alt="Member"
-                  class="rounded-lg"
-                />
-              </figure>
-              <div class="card-body">
-                <h3 class="card-title">John Doe</h3>
-                <p>President</p>
-              </div>
-            </div>
-            <div class="card bg-base-200 shadow-xl">
-              <figure>
-                <img
-                  src="/front-end/src/images/Explore.png"
-                  alt="Member"
-                  class="rounded-lg"
-                />
-              </figure>
-              <div class="card-body">
-                <h3 class="card-title">Jane Smith</h3>
-                <p>Vice President</p>
-              </div>
-            </div>
-            <div class="card bg-base-200 shadow-xl">
-              <figure>
-                <img
-                  src="/front-end/src/images/Explore.png"
-                  alt="Member"
-                  class="rounded-lg"
-                />
-              </figure>
-              <div class="card-body">
-                <h3 class="card-title">John Doe</h3>
-                <p>President</p>
-              </div>
-            </div>
-            <div class="card bg-base-200 shadow-xl">
-              <figure>
-                <img
-                  src="/front-end/src/images/Explore.png"
-                  alt="Member"
-                  class="rounded-lg"
-                />
-              </figure>
-              <div class="card-body">
-                <h3 class="card-title">Jane Smith</h3>
-                <p>Vice President</p>
-              </div>
-            </div>
-            <!-- Add more member cards as needed -->
-          </div>
+          <div
+            id="member-cards-container"
+            class="grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-4"
+          ></div>
         </div>
       </div>
-
       <!-- Follow Us -->
       <div class="snap-start bg-base-200 p-10 py-16">
         <div class="container mx-auto">
@@ -484,13 +329,35 @@
             </div>
           </div>
           <div class="mt-8 text-center">
-            <button
+            <label
+              for="participate-modal"
               class="hover:btn-wide-active btn btn-primary btn-wide transform transition-all duration-300 ease-in-out hover:scale-105"
             >
               Join us and be part of the AI revolution!
-            </button>
+            </label>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <input type="checkbox" id="participate-modal" class="modal-toggle" />
+    <div class="modal">
+      <div class="modal-box relative">
+        <label
+          for="participate-modal"
+          class="btn btn-circle btn-sm absolute right-2 top-2"
+          >✕</label
+        >
+        <h3 class="text-lg font-bold">Enter your email to participate</h3>
+        <form class="modal-action">
+          <input
+            type="email"
+            placeholder="Your email"
+            class="input input-bordered w-full"
+          />
+          <button class="btn btn-primary">Submit</button>
+        </form>
       </div>
     </div>
 
