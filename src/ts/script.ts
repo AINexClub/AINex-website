@@ -3,12 +3,12 @@ interface Routes {
 }
 
 const routes: Routes = {
-  404: "/front-end/src/html/pages/404.html",
-  "/": "/front-end/src/html/pages/home.html",
-  "/events": "/front-end/src/html/pages/events.html",
-  "/gallery": "/front-end/src/html/pages/gallery.html",
-  "/contact": "/front-end/src/html/pages/contact.html",
-  "/news": "/front-end/src/html/pages/news.html",
+  404: "/src/html/404.html",
+  "/": "/src/html/home.html",
+  "/events": "/src/html/events.html",
+  "/gallery": "/src/html/gallery.html",
+  "/contact": "/src/html/contact.html",
+  "/news": "/src/html/news.html",
 };
 
 const route = (event: Event) => {
@@ -58,21 +58,21 @@ const executeEventsScript = () => {
       description: "Event description goes here.",
       date: "Date",
       location: "Location",
-      imageSrc: "/front-end/src/images/Collaborate.png",
+      imageSrc: "/src/images/Collaborate.png",
     },
     {
       title: "Event Name",
       description: "Event description goes here.",
       date: "Date",
       location: "Location",
-      imageSrc: "/front-end/src/images/Explore.png",
+      imageSrc: "/src/images/Explore.png",
     },
     {
       title: "Event Name",
       description: "Event description goes here.",
       date: "Date",
       location: "Location",
-      imageSrc: "/front-end/src/images/Guest-speakers.png",
+      imageSrc: "/src/images/Guest-speakers.png",
     },
   ];
 
@@ -161,12 +161,12 @@ const executeHomeScript = () => {
     {
       name: "John Doe",
       position: "President",
-      imageSrc: "/front-end/src/images/Explore.png",
+      imageSrc: "/src/images/Explore.png",
     },
     {
       name: "Jane Smith",
       position: "Vice President",
-      imageSrc: "/front-end/src/images/Explore.png",
+      imageSrc: "/src/images/Explore.png",
     },
     // Add more member data objects as needed
   ];
@@ -284,9 +284,9 @@ const executeGalleryScript = () => {
         title: "Gallery Item 1",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         images: [
-          "/front-end/src/images/Collaborate.png",
-          "/front-end/src/images/Explore.png",
-          "/front-end/src/images/Guest-speakers.png",
+          "/src/images/Collaborate.png",
+          "/src/images/Explore.png",
+          "/src/images/Guest-speakers.png",
         ],
       })}
     </div>

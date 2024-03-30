@@ -1,10 +1,13 @@
 {
   "name": "ainex-website",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "tailwind": "npx tailwindcss -i ./src/css/input.css -o ./src/css/output.css --watch",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
@@ -22,6 +25,10 @@
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.12",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.4.3"
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.41.1"
   }
 }
