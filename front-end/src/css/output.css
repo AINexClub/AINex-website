@@ -3116,6 +3116,10 @@ details.collapse summary::-webkit-details-marker {
   border-radius: 0.375rem;
 }
 
+.rounded {
+  border-radius: 0.25rem;
+}
+
 .bg-\[\#0077b5\] {
   --tw-bg-opacity: 1;
   background-color: rgb(0 119 181 / var(--tw-bg-opacity));
@@ -3169,6 +3173,11 @@ details.collapse summary::-webkit-details-marker {
 .bg-primary-content {
   --tw-bg-opacity: 1;
   background-color: var(--fallback-pc,oklch(var(--pc)/var(--tw-bg-opacity)));
+}
+
+.bg-\[\#ea4335\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 67 53 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-r {
@@ -3269,6 +3278,14 @@ details.collapse summary::-webkit-details-marker {
   text-align: center;
 }
 
+.font-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.font-serif {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -3323,6 +3340,10 @@ details.collapse summary::-webkit-details-marker {
 
 .leading-normal {
   line-height: 1.5;
+}
+
+.tracking-tight {
+  letter-spacing: -0.025em;
 }
 
 .text-error {
