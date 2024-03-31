@@ -304,7 +304,10 @@ const executeGalleryScript = async () => {
         "Our Gallery",
         "Explore our collection of images showcasing our products, events, and more.",
       ),
-      nextSlide: createSlideNavigation(undefined, "slide ❯"),
+      nextSlide: createSlideNavigation(
+        undefined,
+        `<p class="animate-bounce text-xl text-primary">slide ❯</p>`,
+      ),
     },
     ...galleryItems.map((item, index) => ({
       id: `slide${index + 2}`,
@@ -313,8 +316,13 @@ const executeGalleryScript = async () => {
     ${createGalleryCard(item)}
   </div>
 `,
-      prevSlide: createSlideNavigation("❮ slide"),
-      nextSlide: createSlideNavigation(undefined, "slide ❯"),
+      prevSlide: createSlideNavigation(
+        `<p class="animate-bounce text-xl text-primary">❮ slide</p>`,
+      ),
+      nextSlide: createSlideNavigation(
+        undefined,
+        `<p class="animate-bounce text-xl text-primary">slide ❯</p>`,
+      ),
     })),
     {
       id: `slide${galleryItems.length + 2}`,
@@ -322,7 +330,9 @@ const executeGalleryScript = async () => {
         "Thank You",
         "We appreciate your interest in our gallery. Feel free to explore more!",
       ),
-      prevSlide: createSlideNavigation("❮ slide"),
+      prevSlide: createSlideNavigation(
+        `<p class="animate-bounce text-xl text-primary">❮ slide</p>`,
+      ),
     },
   ];
 
@@ -334,7 +344,7 @@ const executeGalleryScript = async () => {
   //       "Our Gallery",
   //       "Explore our collection of images showcasing our products, events, and more.",
   //     ),
-  //     nextSlide: createSlideNavigation(undefined, "slide ❯"),
+  //     nextSlide: createSlideNa`<p class="animate-bounce text-xl text-primary">slide ❯</p>`undefined, "slide ❯"),
   //   },
   //   {
   //     id: "slide2",
@@ -352,7 +362,7 @@ const executeGalleryScript = async () => {
   //   </div>
   // `,
   //     prevSlide: createSlideNavigation("❮ slide"),
-  //     nextSlide: createSlideNavigation(undefined, "slide ❯"),
+  //     nextSlide: createSlideNa`<p class="animate-bounce text-xl text-primary">slide ❯</p>`undefined, "slide ❯"),
   //   },
   //   {
   //     id: "slide3",
