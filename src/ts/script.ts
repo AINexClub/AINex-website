@@ -148,10 +148,33 @@ const executeEventsScript = async () => {
       <div class="modal">
         <div class="modal-box relative">
           <label for="participate-modal" class="btn btn-circle btn-sm absolute right-2 top-2">✕</label>
-          <h3 class="text-lg font-bold">Enter your email to participate</h3>
-          <form class="modal-action">
-            <input type="email" placeholder="Your email" class="input input-bordered w-full" />
-            <button class="btn btn-primary">Submit</button>
+          <h3 class="text-lg font-bold">Participation form</h3>
+          <form class="card-body">
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Name</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Your Name"
+                class="input input-bordered"
+                required
+              />
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Email</span>
+              </label>
+              <input
+                type="email"
+                placeholder="Your Email"
+                class="input input-bordered"
+                required
+              />
+            </div>
+            <div class="form-control mt-6">
+              <button class="btn btn-primary">Submit</button>
+            </div>
           </form>
         </div>
       </div>
@@ -193,7 +216,7 @@ const executeHomeScript = async () => {
     return;
   }
 
-  function createMemberCard(member: Member): string {
+  function createMemberCard(member: any): string {
     return `
       <div class="card bg-base-200 shadow-xl">
         <figure>
@@ -202,6 +225,7 @@ const executeHomeScript = async () => {
         <div class="card-body">
           <h3 class="card-title">${member.name}</h3>
           <p>${member.position}</p>
+          ${member.contact_info ? `<p><strong>Contact:</strong><a class="link link-primary" href="mailto: ${member.contact_info}"> ${member.contact_info}</a></p>` : ""}
         </div>
       </div>
     `;
