@@ -356,20 +356,32 @@
     <!-- Modal -->
     <input type="checkbox" id="participate-modal" class="modal-toggle" />
     <div class="modal">
-      <div class="modal-box relative">
+      <div class="modal-box relative" id="home-modal-div">
         <label
           for="participate-modal"
           class="btn btn-circle btn-sm absolute right-2 top-2"
           >✕</label
         >
         <h3 class="text-lg font-bold">Registration form</h3>
-        <form class="card-body">
+        <form
+          class="card-body"
+          id="home-form"
+          action="https://api.web3forms.com/submit"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="access_key"
+            value="274c294b-5bea-4657-9b5e-fab0051e2f83"
+          />
+          <input type="hidden" name="Registration" value="Registration-form" />
           <div class="form-control">
             <label class="label">
               <span class="label-text">Name</span>
             </label>
             <input
               type="text"
+              name="name"
               placeholder="Your Name"
               class="input input-bordered"
               required
@@ -381,6 +393,7 @@
             </label>
             <input
               type="email"
+              name="email"
               placeholder="Your Email"
               class="input input-bordered"
               required
