@@ -16,14 +16,35 @@
           <p class="py-6">
             Stay up-to-date with the latest news, updates, and exclusive offers.
           </p>
-          <form class="form-control">
-            <div class="flex gap-2">
+          <form>
+            <div class="form-control">
+              <label class="label" for="name">
+                <span class="label-text">Name</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="input input-bordered"
+              />
+            </div>
+
+            <div class="form-control">
+              <label class="label" for="email">
+                <span class="label-text">Email</span>
+              </label>
               <input
                 type="email"
-                placeholder="Email"
-                class="input input-bordered w-full"
+                id="email"
+                name="email"
+                required
+                class="input input-bordered"
               />
-              <button class="btn btn-primary">Subscribe</button>
+            </div>
+
+            <div class="form-control mt-6">
+              <button type="submit" class="btn btn-primary">Submit</button>
             </div>
           </form>
         </div>

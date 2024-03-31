@@ -71,10 +71,7 @@
             <div class="card bg-base-200 shadow-xl">
               <div class="card-body">
                 <figure>
-                  <img
-                    src="/src/images/Collaborate.png"
-                    alt="Collaborate"
-                  />
+                  <img src="/src/images/Collaborate.png" alt="Collaborate" />
                 </figure>
                 <h3 class="card-title">Collaborate and Network</h3>
                 <p>
@@ -107,10 +104,7 @@
             </div>
             <div class="card bg-base-100 shadow-xl">
               <figure>
-                <img
-                  src="/src/images/Guest-speakers.png"
-                  alt="Activity"
-                />
+                <img src="/src/images/Guest-speakers.png" alt="Activity" />
               </figure>
               <div class="card-body">
                 <h3 class="card-title">Guest Speakers</h3>
@@ -135,6 +129,7 @@
           ></div>
         </div>
       </div>
+
       <!-- Follow Us -->
       <div class="snap-start bg-base-200 p-10 py-16">
         <div class="container mx-auto">
@@ -367,14 +362,33 @@
           class="btn btn-circle btn-sm absolute right-2 top-2"
           >✕</label
         >
-        <h3 class="text-lg font-bold">Enter your email to participate</h3>
-        <form class="modal-action">
-          <input
-            type="email"
-            placeholder="Your email"
-            class="input input-bordered w-full"
-          />
-          <button class="btn btn-primary">Submit</button>
+        <h3 class="text-lg font-bold">Registration form</h3>
+        <form class="card-body">
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Name</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Your Name"
+              class="input input-bordered"
+              required
+            />
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Email</span>
+            </label>
+            <input
+              type="email"
+              placeholder="Your Email"
+              class="input input-bordered"
+              required
+            />
+          </div>
+          <div class="form-control mt-6">
+            <button class="btn btn-primary">Submit</button>
+          </div>
         </form>
       </div>
     </div>
