@@ -44,10 +44,126 @@ const handleLocation = async () => {
       case "/events":
         executeEventsScript();
         break;
+      case "/news":
+        executeNewsScript();
+        break;
+      case "/contact":
+        executeContactScript();
+        break;
       // Add more cases for other routes and their respective scripts
       default:
         break;
     }
+  }
+};
+
+const executeContactScript = async () => {
+  // Add event listener to the form submission
+  const contactForm = document.getElementById("contact-form");
+  if (contactForm) {
+    contactForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const formData = new FormData(contactForm);
+      const name = formData.get("name");
+      const email = formData.get("email");
+      const message = formData.get("message");
+      try {
+        const { error } = await supabase.from("users").insert({ name, email });
+
+        if (error) {
+          console.error("Error submitting form:", error);
+        } else {
+          console.log("Form submitted successfully");
+          contactForm.style.display = "none"; // Hide the form
+          const thanksDiv = document.createElement("div");
+          thanksDiv.innerHTML = createThanksDiv();
+          const mainPage = document.getElementById("contact-div");
+          if (mainPage) {
+            mainPage.appendChild(thanksDiv);
+          }
+        }
+      } catch (error) {
+        console.error("Error submitting form:", error);
+      }
+
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
+      });
+    });
+  }
+
+  function createThanksDiv() {
+    return `
+    <div class="mt-4 bg-primary text-primary-content rounded-lg shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">Thank you for your submission!</h2>
+        <p>Your message has been received, and we'll get back to you shortly.</p>
+      </div>
+    </div>
+    `;
+  }
+};
+
+const executeNewsScript = async () => {
+  // Add event listener to the form submission
+  const newsForm = document.getElementById("news-form");
+  if (newsForm) {
+    newsForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const formData = new FormData(newsForm);
+      const name = formData.get("name");
+      const email = formData.get("email");
+
+      try {
+        const { error } = await supabase.from("users").insert({ name, email });
+
+        if (error) {
+          console.error("Error submitting form:", error);
+        } else {
+          console.log("Form submitted successfully");
+          newsForm.style.display = "none"; // Hide the form
+          const thanksDiv = document.createElement("div");
+          thanksDiv.innerHTML = createThanksDiv();
+          const mainPage = document.getElementById("news-div");
+          if (mainPage) {
+            mainPage.appendChild(thanksDiv);
+          }
+        }
+      } catch (error) {
+        console.error("Error submitting form:", error);
+      }
+
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
+      });
+    });
+  }
+
+  function createThanksDiv() {
+    return `
+    <div class="mt-4 bg-primary text-primary-content rounded-lg shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">Thank you for your submission!</h2>
+        <p>We'll get back to you shortly.</p>
+      </div>
+    </div>
+    `;
   }
 };
 
@@ -146,16 +262,26 @@ const executeEventsScript = async () => {
   
       <input type="checkbox" id="participate-modal" class="modal-toggle" />
       <div class="modal">
-        <div class="modal-box relative">
+        <div class="modal-box relative" id="participate-modal-div">
           <label for="participate-modal" class="btn btn-circle btn-sm absolute right-2 top-2">✕</label>
           <h3 class="text-lg font-bold">Participation form</h3>
-          <form class="card-body">
+          <form class="card-body" id="participate-form" 
+                action="https://api.web3forms.com/submit"
+                method="POST"
+          >
+            <input
+              type="hidden"
+              name="access_key"
+              value="274c294b-5bea-4657-9b5e-fab0051e2f83"
+            />
+            <input type="hidden" name="Participation" value="Participation-form" />
             <div class="form-control">
               <label class="label">
                 <span class="label-text">Name</span>
               </label>
               <input
                 type="text"
+                name="name"
                 placeholder="Your Name"
                 class="input input-bordered"
                 required
@@ -167,6 +293,7 @@ const executeEventsScript = async () => {
               </label>
               <input
                 type="email"
+                name="email"
                 placeholder="Your Email"
                 class="input input-bordered"
                 required
@@ -181,9 +308,62 @@ const executeEventsScript = async () => {
     `;
   }
 
+  function createThanksDiv() {
+    return `
+    <div class="mt-4 bg-primary text-primary-content rounded-lg shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">Thank you for your submission!</h2>
+        <p>We'll get back to you shortly.</p>
+      </div>
+    </div>
+    `;
+  }
+
   const eventsContainer = document.getElementById("events-container");
   if (eventsContainer) {
     eventsContainer.innerHTML = renderEventSection();
+  }
+
+  // Add event listener to the form submission
+  const participateForm = document.getElementById("participate-form");
+  if (participateForm) {
+    participateForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const formData = new FormData(participateForm);
+      const name = formData.get("name");
+      const email = formData.get("email");
+
+      try {
+        const { error } = await supabase.from("users").insert({ name, email });
+
+        if (error) {
+          console.error("Error submitting form:", error);
+        } else {
+          console.log("Form submitted successfully");
+          participateForm.style.display = "none"; // Hide the form
+          const thanksDiv = document.createElement("div");
+          thanksDiv.innerHTML = createThanksDiv();
+          const mainPage = document.getElementById("participate-modal-div");
+          if (mainPage) {
+            mainPage.appendChild(thanksDiv);
+          }
+        }
+      } catch (error) {
+        console.error("Error submitting form:", error);
+      }
+
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
+      });
+    });
   }
 };
 
@@ -225,7 +405,7 @@ const executeHomeScript = async () => {
         <div class="card-body">
           <h3 class="card-title">${member.name}</h3>
           <p>${member.position}</p>
-          ${member.contact_info ? `<p><strong>Contact:</strong><a class="link link-primary" href="mailto: ${member.contact_info}"> ${member.contact_info}</a></p>` : ""}
+          ${member.contact_info ? `<a class="link link-primary" href="mailto: ${member.contact_info}"> ${member.contact_info}</a>` : ""}
         </div>
       </div>
     `;
@@ -245,6 +425,59 @@ const executeHomeScript = async () => {
   );
   if (memberCardsContainer) {
     memberCardsContainer.innerHTML = memberCardsHTML;
+  }
+
+  function createThanksDiv() {
+    return `
+    <div class="mt-4 bg-primary text-primary-content rounded-lg shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">Thank you for your submission!</h2>
+        <p>We'll get back to you shortly.</p>
+      </div>
+    </div>
+    `;
+  }
+
+  // Add event listener to the form submission
+  const homeForm = document.getElementById("home-form");
+  if (homeForm) {
+    homeForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const formData = new FormData(homeForm);
+      const name = formData.get("name");
+      const email = formData.get("email");
+
+      try {
+        const { error } = await supabase.from("users").insert({ name, email });
+
+        if (error) {
+          console.error("Error submitting form:", error);
+        } else {
+          console.log("Form submitted successfully");
+          homeForm.style.display = "none"; // Hide the form
+          const thanksDiv = document.createElement("div");
+          thanksDiv.innerHTML = createThanksDiv();
+          const mainPage = document.getElementById("home-modal-div");
+          if (mainPage) {
+            mainPage.appendChild(thanksDiv);
+          }
+        }
+      } catch (error) {
+        console.error("Error submitting form:", error);
+      }
+
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
+      });
+    });
   }
 };
 

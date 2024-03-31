@@ -10,13 +10,23 @@
   </head>
   <body>
     <div class="hero min-h-[85vh]">
-      <div class="hero-content text-center">
-        <div class="max-w-md">
+      <div class="hero-content">
+        <div class="max-w-md" id="news-div">
           <h1 class="text-5xl font-bold">Subscribe to Our Newsletter</h1>
           <p class="py-6">
             Stay up-to-date with the latest news, updates, and exclusive offers.
           </p>
-          <form>
+          <form
+            id="news-form"
+            action="https://api.web3forms.com/submit"
+            method="POST"
+          >
+            <input
+              type="hidden"
+              name="access_key"
+              value="274c294b-5bea-4657-9b5e-fab0051e2f83"
+            />
+            <input type="hidden" name="News" value="News-form" />
             <div class="form-control">
               <label class="label" for="name">
                 <span class="label-text">Name</span>

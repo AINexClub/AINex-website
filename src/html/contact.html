@@ -11,14 +11,29 @@
   <body>
     <div class="hero min-h-[85vh]">
       <div class="hero-content flex-col gap-10 lg:flex-row-reverse">
-        <div class="card w-full max-w-sm flex-shrink-0 bg-base-100 shadow-2xl">
-          <form class="card-body">
+        <div
+          class="card w-full max-w-sm flex-shrink-0 bg-base-100 shadow-2xl"
+          id="contact-div"
+        >
+          <form
+            class="card-body"
+            id="contact-form"
+            action="https://api.web3forms.com/submit"
+            method="POST"
+          >
+            <input
+              type="hidden"
+              name="access_key"
+              value="274c294b-5bea-4657-9b5e-fab0051e2f83"
+            />
+            <input type="hidden" name="Contact" value="Contact-form" />
             <div class="form-control">
               <label class="label">
                 <span class="label-text">Name</span>
               </label>
               <input
                 type="text"
+                name="name"
                 placeholder="Your Name"
                 class="input input-bordered"
                 required
@@ -30,6 +45,7 @@
               </label>
               <input
                 type="email"
+                name="email"
                 placeholder="Your Email"
                 class="input input-bordered"
                 required
@@ -40,6 +56,7 @@
                 <span class="label-text">Message</span>
               </label>
               <textarea
+                name="message"
                 class="textarea textarea-bordered"
                 placeholder="Your Message"
                 required
