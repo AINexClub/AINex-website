@@ -59,14 +59,15 @@ const handleLocation = async () => {
 
 const executeContactScript = async () => {
   // Add event listener to the form submission
-  const contactForm = document.getElementById("contact-form");
+  const contactForm = document.getElementById(
+    "contact-form",
+  ) as HTMLFormElement;
   if (contactForm) {
     contactForm.addEventListener("submit", async (event) => {
       event.preventDefault();
       const formData = new FormData(contactForm);
       const name = formData.get("name");
       const email = formData.get("email");
-      const message = formData.get("message");
       try {
         const { error } = await supabase.from("users").insert({ name, email });
 
@@ -114,7 +115,7 @@ const executeContactScript = async () => {
 
 const executeNewsScript = async () => {
   // Add event listener to the form submission
-  const newsForm = document.getElementById("news-form");
+  const newsForm = document.getElementById("news-form") as HTMLFormElement;
   if (newsForm) {
     newsForm.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -173,32 +174,8 @@ const executeEventsScript = async () => {
     description: string;
     date: string;
     location: string;
-    imageSrc: string;
+    image_url: string;
   }
-
-  // const eventItems: EventItem[] = [
-  //   {
-  //     title: "Event Name",
-  //     description: "Event description goes here.",
-  //     date: "Date",
-  //     location: "Location",
-  //     imageSrc: "/src/images/Collaborate.png",
-  //   },
-  //   {
-  //     title: "Event Name",
-  //     description: "Event description goes here.",
-  //     date: "Date",
-  //     location: "Location",
-  //     imageSrc: "/src/images/Explore.png",
-  //   },
-  //   {
-  //     title: "Event Name",
-  //     description: "Event description goes here.",
-  //     date: "Date",
-  //     location: "Location",
-  //     imageSrc: "/src/images/Guest-speakers.png",
-  //   },
-  // ];
 
   const { data: eventItems, error } = await supabase.from("events").select("*");
 
@@ -232,7 +209,7 @@ const executeEventsScript = async () => {
   }
 
   function renderEventSection(): string {
-    const eventCards = eventItems.map(createEventCard).join("");
+    const eventCards = eventItems!.map(createEventCard).join("");
 
     return `
       <div class="h-[85vh] snap-y snap-mandatory overflow-y-scroll">
@@ -325,7 +302,9 @@ const executeEventsScript = async () => {
   }
 
   // Add event listener to the form submission
-  const participateForm = document.getElementById("participate-form");
+  const participateForm = document.getElementById(
+    "participate-form",
+  ) as HTMLFormElement;
   if (participateForm) {
     participateForm.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -369,26 +348,6 @@ const executeEventsScript = async () => {
 
 const executeHomeScript = async () => {
   // members.ts
-  interface Member {
-    name: string;
-    position: string;
-    imageSrc: string;
-  }
-
-  // const members: Member[] = [
-  //   {
-  //     name: "John Doe",
-  //     position: "President",
-  //     imageSrc: "/src/images/Explore.png",
-  //   },
-  //   {
-  //     name: "Jane Smith",
-  //     position: "Vice President",
-  //     imageSrc: "/src/images/Explore.png",
-  //   },
-  //   // Add more member data objects as needed
-  // ];
-
   const { data: members, error } = await supabase.from("members").select("*");
 
   if (error) {
@@ -413,7 +372,7 @@ const executeHomeScript = async () => {
 
   function renderMemberCards(): string {
     let memberCards = "";
-    members.forEach((member) => {
+    members!.forEach((member) => {
       memberCards += createMemberCard(member);
     });
     return memberCards;
@@ -439,7 +398,7 @@ const executeHomeScript = async () => {
   }
 
   // Add event listener to the form submission
-  const homeForm = document.getElementById("home-form");
+  const homeForm = document.getElementById("home-form") as HTMLFormElement;
   if (homeForm) {
     homeForm.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -483,13 +442,6 @@ const executeHomeScript = async () => {
 
 const executeGalleryScript = async () => {
   // Define interfaces
-  interface CarouselItem {
-    id: string;
-    content: string;
-    prevSlide?: string;
-    nextSlide?: string;
-  }
-
   interface GalleryItem {
     title: string;
     description: string;
@@ -593,44 +545,6 @@ const executeGalleryScript = async () => {
     },
   ];
 
-  // // Define carousel items
-  // const carouselItems: CarouselItem[] = [
-  //   {
-  //     id: "slide1",
-  //     content: createHeroContent(
-  //       "Our Gallery",
-  //       "Explore our collection of images showcasing our products, events, and more.",
-  //     ),
-  //     nextSlide: createSlideNa`<p class="animate-bounce text-xl text-primary">slide ❯</p>`undefined, "slide ❯"),
-  //   },
-  //   {
-  //     id: "slide2",
-  //     content: `
-  //   <div class="container mx-auto overflow-y-scroll px-4 py-8">
-  //     ${createGalleryCard({
-  //       title: "Gallery Item 1",
-  //       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  //       images: [
-  //         "/src/images/Collaborate.png",
-  //         "/src/images/Explore.png",
-  //         "/src/images/Guest-speakers.png",
-  //       ],
-  //     })}
-  //   </div>
-  // `,
-  //     prevSlide: createSlideNavigation("❮ slide"),
-  //     nextSlide: createSlideNa`<p class="animate-bounce text-xl text-primary">slide ❯</p>`undefined, "slide ❯"),
-  //   },
-  //   {
-  //     id: "slide3",
-  //     content: createHeroContent(
-  //       "Thank You",
-  //       "We appreciate your interest in our gallery. Feel free to explore more!",
-  //     ),
-  //     prevSlide: createSlideNavigation("❮ slide"),
-  //   },
-  // ];
-
   // Render carousel
   function renderCarousel(): string {
     let carouselHTML = '<div class="carousel h-[85vh] bg-base-200">';
@@ -654,6 +568,15 @@ const executeGalleryScript = async () => {
     carouselContainer.innerHTML = renderCarousel();
   }
 };
+
+// Declare the 'route' property on the 'window' object
+declare global {
+  interface Window {
+    route: (event: Event) => void; // Adjust the type as needed
+  }
+}
+
+// Now you can assign a value to 'window.route'
 
 window.onpopstate = handleLocation;
 window.route = route;
