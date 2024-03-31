@@ -96,12 +96,12 @@ const executeEventsScript = async () => {
     description,
     date,
     location,
-    imageSrc,
+    image_url,
   }: EventItem): string {
     return `
       <div class="card bg-base-100 shadow-xl">
         <figure>
-          <img src="${imageSrc}" alt="Event Image" class="h-[34vh] w-[34vh]" />
+          <img src="${image_url}" alt="Event Image" class="h-[34vh] w-[34vh]" />
         </figure>
         <div class="card-body">
           <h2 class="card-title">${title}</h2>
@@ -197,7 +197,7 @@ const executeHomeScript = async () => {
     return `
       <div class="card bg-base-200 shadow-xl">
         <figure>
-          <img src="${member.imageSrc}" alt="Member" class="rounded-lg" />
+          <img src="${member.image_url}" alt="Member" class="rounded-lg" />
         </figure>
         <div class="card-body">
           <h3 class="card-title">${member.name}</h3>
