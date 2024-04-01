@@ -451,10 +451,10 @@ const executeGalleryScript = async () => {
   // Define reusable functions
   function createHeroContent(title: string, description: string): string {
     return `
-  <div class="hero h-[85vh]">
+  <div class="hero min-h-screen md:h-[85vh]">
     <div class="hero-content text-center">
       <div class="max-w-md">
-        <h1 class="text-4xl font-bold md:text-5xl">${title}</h1>
+        <h1 class="text-3xl font-bold md:text-5xl">${title}</h1>
         <p class="py-6">${description}</p>
       </div>
     </div>
@@ -494,11 +494,11 @@ const executeGalleryScript = async () => {
 
     return `
 <div class="card overflow-hidden bg-base-100 shadow-xl">
-  <div class="card-body">
-    <h2 class="card-title">${title}</h2>
-    <p>${description}</p>
+  <div class="card-body p-4 md:p-6">
+    <h2 class="card-title text-lg md:text-2xl">${title}</h2>
+    <p class="text-sm md:text-base">${description}</p>
   </div>
-  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+  <div class="grid grid-cols-1 gap-2 md:gap-4 sm:grid-cols-2 md:grid-cols-3">
     ${imageElements}
   </div>
 </div>
@@ -521,7 +521,7 @@ const executeGalleryScript = async () => {
     ...galleryItems.map((item, index) => ({
       id: `slide${index + 2}`,
       content: `
-  <div class="container mx-auto overflow-y-scroll px-4 py-8">
+  <div class="container mx-auto overflow-y-scroll px-2 py-4 md:px-4 md:py-8">
     ${createGalleryCard(item)}
   </div>
 `,
