@@ -69,10 +69,39 @@ const executeContactScript = async () => {
       const name = formData.get("name");
       const email = formData.get("email");
       try {
-        const { error } = await supabase.from("users").insert({ name, email });
+        // Fetch the user's existing data based on the email
+        const { data: existingUser, error: fetchError } = await supabase
+          .from("users")
+          .select("*")
+          .eq("email", email)
+          .single();
 
-        if (error) {
-          console.error("Error submitting form:", error);
+        if (fetchError) {
+          console.error("Error fetching user:", fetchError);
+          return;
+        }
+
+        // Handle existing user or insert new data
+        if (existingUser) {
+          // User exists, delete their data first
+          const { error: deleteError } = await supabase
+            .from("users")
+            .delete()
+            .eq("email", email);
+
+          if (deleteError) {
+            console.error("Error deleting user:", deleteError);
+            return;
+          }
+        }
+
+        // Insert the new form data
+        const { error: insertError } = await supabase
+          .from("users")
+          .insert({ name, email });
+
+        if (insertError) {
+          console.error("Error submitting form:", insertError);
         } else {
           console.log("Form submitted successfully");
           contactForm.style.display = "none"; // Hide the form
@@ -124,7 +153,9 @@ const executeNewsScript = async () => {
       const email = formData.get("email");
 
       try {
-        const { error } = await supabase.from("users").insert({ name, email });
+        const { error } = await supabase
+          .from("users")
+          .upsert({ name, email }, { onConflict: "email" });
 
         if (error) {
           console.error("Error submitting form:", error);
@@ -251,7 +282,7 @@ const executeEventsScript = async () => {
               name="access_key"
               value="274c294b-5bea-4657-9b5e-fab0051e2f83"
             />
-            <input type="hidden" name="Participation" value="Participation-form" />
+            <input type="hidden" name="form" value="Participation-form" />
             <div class="form-control">
               <label class="label">
                 <span class="label-text">Name</span>
@@ -313,7 +344,9 @@ const executeEventsScript = async () => {
       const email = formData.get("email");
 
       try {
-        const { error } = await supabase.from("users").insert({ name, email });
+        const { error } = await supabase
+          .from("users")
+          .upsert({ name, email }, { onConflict: "email" });
 
         if (error) {
           console.error("Error submitting form:", error);
@@ -407,7 +440,9 @@ const executeHomeScript = async () => {
       const email = formData.get("email");
 
       try {
-        const { error } = await supabase.from("users").insert({ name, email });
+        const { error } = await supabase
+          .from("users")
+          .upsert({ name, email }, { onConflict: "email" });
 
         if (error) {
           console.error("Error submitting form:", error);
