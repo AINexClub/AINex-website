@@ -69,7 +69,9 @@ const executeContactScript = async () => {
       const name = formData.get("name");
       const email = formData.get("email");
       try {
-        const { error } = await supabase.from("users").insert({ name, email });
+        const { error } = await supabase
+          .from("users")
+          .upsert({ name, email }, { onConflict: "email" });
 
         if (error) {
           console.error("Error submitting form:", error);
@@ -124,7 +126,9 @@ const executeNewsScript = async () => {
       const email = formData.get("email");
 
       try {
-        const { error } = await supabase.from("users").insert({ name, email });
+        const { error } = await supabase
+          .from("users")
+          .upsert({ name, email }, { onConflict: "email" });
 
         if (error) {
           console.error("Error submitting form:", error);
@@ -313,7 +317,9 @@ const executeEventsScript = async () => {
       const email = formData.get("email");
 
       try {
-        const { error } = await supabase.from("users").insert({ name, email });
+        const { error } = await supabase
+          .from("users")
+          .upsert({ name, email }, { onConflict: "email" });
 
         if (error) {
           console.error("Error submitting form:", error);
@@ -407,7 +413,9 @@ const executeHomeScript = async () => {
       const email = formData.get("email");
 
       try {
-        const { error } = await supabase.from("users").insert({ name, email });
+        const { error } = await supabase
+          .from("users")
+          .upsert({ name, email }, { onConflict: "email" });
 
         if (error) {
           console.error("Error submitting form:", error);
