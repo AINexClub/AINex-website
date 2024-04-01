@@ -2957,14 +2957,6 @@ details.collapse summary::-webkit-details-marker {
   height: 85vh;
 }
 
-.h-screen {
-  height: 100vh;
-}
-
-.min-h-\[85vh\] {
-  min-height: 85vh;
-}
-
 .min-h-screen {
   min-height: 100vh;
 }
@@ -3005,10 +2997,6 @@ details.collapse summary::-webkit-details-marker {
   max-width: 24rem;
 }
 
-.max-w-full {
-  max-width: 100%;
-}
-
 .flex-shrink-0 {
   flex-shrink: 0;
 }
@@ -3036,18 +3024,6 @@ details.collapse summary::-webkit-details-marker {
 
 .animate-bounce {
   animation: bounce 1s infinite;
-}
-
-.snap-y {
-  scroll-snap-type: y var(--tw-scroll-snap-strictness);
-}
-
-.snap-mandatory {
-  --tw-scroll-snap-strictness: mandatory;
-}
-
-.snap-start {
-  scroll-snap-align: start;
 }
 
 .grid-cols-1 {
@@ -3078,6 +3054,10 @@ details.collapse summary::-webkit-details-marker {
   gap: 2.5rem;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
 .gap-4 {
   gap: 1rem;
 }
@@ -3086,20 +3066,8 @@ details.collapse summary::-webkit-details-marker {
   gap: 2rem;
 }
 
-.gap-2 {
-  gap: 0.5rem;
-}
-
 .overflow-hidden {
   overflow: hidden;
-}
-
-.overflow-scroll {
-  overflow: scroll;
-}
-
-.overflow-y-visible {
-  overflow-y: visible;
 }
 
 .overflow-x-scroll {
@@ -3108,10 +3076,6 @@ details.collapse summary::-webkit-details-marker {
 
 .overflow-y-scroll {
   overflow-y: scroll;
-}
-
-.text-nowrap {
-  text-wrap: nowrap;
 }
 
 .rounded-2xl {
@@ -3245,9 +3209,9 @@ details.collapse summary::-webkit-details-marker {
   padding-right: 0.25rem;
 }
 
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .px-6 {
@@ -3270,24 +3234,14 @@ details.collapse summary::-webkit-details-marker {
   padding-bottom: 0.625rem;
 }
 
-.py-6 {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
-.py-8 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .pt-6 {
@@ -3332,6 +3286,11 @@ details.collapse summary::-webkit-details-marker {
   line-height: 1.75rem;
 }
 
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -3340,11 +3299,6 @@ details.collapse summary::-webkit-details-marker {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
 }
 
 .font-bold {
@@ -3489,10 +3443,6 @@ details.collapse summary::-webkit-details-marker {
 }
 
 @media (min-width: 768px) {
-  .md\:h-\[85vh\] {
-    height: 85vh;
-  }
-
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -3509,12 +3459,12 @@ details.collapse summary::-webkit-details-marker {
     padding: 1rem;
   }
 
-  .md\:p-8 {
-    padding: 2rem;
-  }
-
   .md\:p-6 {
     padding: 1.5rem;
+  }
+
+  .md\:p-8 {
+    padding: 2rem;
   }
 
   .md\:px-4 {
@@ -3527,14 +3477,14 @@ details.collapse summary::-webkit-details-marker {
     padding-bottom: 2rem;
   }
 
-  .md\:text-5xl {
-    font-size: 3rem;
-    line-height: 1;
-  }
-
   .md\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
+  }
+
+  .md\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
   }
 
   .md\:text-base {
@@ -3558,14 +3508,6 @@ details.collapse summary::-webkit-details-marker {
 
   .lg\:h-72 {
     height: 18rem;
-  }
-
-  .lg\:h-\[85vh\] {
-    height: 85vh;
-  }
-
-  .lg\:min-h-\[85vh\] {
-    min-height: 85vh;
   }
 
   .lg\:w-1\/2 {

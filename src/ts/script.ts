@@ -486,7 +486,7 @@ const executeGalleryScript = async () => {
   // Define reusable functions
   function createHeroContent(title: string, description: string): string {
     return `
-  <div class="hero min-h-screen md:h-[85vh]">
+  <div class="hero h-[85vh]">
     <div class="hero-content text-center">
       <div class="max-w-md">
         <h1 class="text-3xl font-bold md:text-5xl">${title}</h1>
