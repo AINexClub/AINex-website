@@ -2957,6 +2957,10 @@ details.collapse summary::-webkit-details-marker {
   height: 85vh;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .min-h-\[85vh\] {
   min-height: 85vh;
 }
@@ -3542,6 +3546,14 @@ details.collapse summary::-webkit-details-marker {
 
   .lg\:h-72 {
     height: 18rem;
+  }
+
+  .lg\:h-\[85vh\] {
+    height: 85vh;
+  }
+
+  .lg\:min-h-\[85vh\] {
+    min-height: 85vh;
   }
 
   .lg\:w-1\/2 {
