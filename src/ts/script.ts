@@ -212,8 +212,8 @@ const executeEventsScript = async () => {
     const eventCards = eventItems!.map(createEventCard).join("");
 
     return `
-      <div class="h-[85vh] snap-y snap-mandatory overflow-y-scroll">
-        <div class="snap-start bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-10 py-16">
+      <div class="h-[85vh] overflow-y-scroll">
+        <div class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-10 py-16">
           <div class="container mx-auto">
             <h2 class="mb-8 text-center text-4xl font-bold text-white">Participate in our Upcoming Event</h2>
             <div class="flex justify-center">
@@ -229,7 +229,7 @@ const executeEventsScript = async () => {
           </div>
         </div>
   
-        <div class="hero-container snap-start bg-base-200 p-10">
+        <div class="hero-container bg-base-200 p-10">
           <h1 class="mb-8 text-4xl font-bold">Upcoming Events</h1>
           <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             ${eventCards}
