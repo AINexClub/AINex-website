@@ -12,14 +12,20 @@
     <div class="hero min-h-[85vh]">
       <div class="hero-content">
         <div class="max-w-md" id="news-div">
-          <h1 class="text-5xl font-bold">Subscribe to Our Newsletter</h1>
-          <p class="py-6">
-            Stay up-to-date with the latest news, updates, and exclusive offers.
-          </p>
+          <div class="mb-6 text-center">
+            <h1 class="text-3xl font-bold md:text-5xl">
+              Subscribe to Our Newsletter
+            </h1>
+            <p class="py-2 text-sm md:text-base">
+              Stay up-to-date with the latest news, updates, and exclusive
+              offers.
+            </p>
+          </div>
           <form
             id="news-form"
             action="https://api.web3forms.com/submit"
             method="POST"
+            class="card-body p-4 md:p-8"
           >
             <input
               type="hidden"
@@ -53,8 +59,10 @@
               />
             </div>
 
-            <div class="form-control mt-6">
-              <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="form-control mt-4">
+              <button type="submit" class="btn btn-primary w-full">
+                Submit
+              </button>
             </div>
           </form>
         </div>

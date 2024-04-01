@@ -10,13 +10,22 @@
   </head>
   <body>
     <div class="hero min-h-[85vh]">
-      <div class="hero-content flex-col gap-10 lg:flex-row-reverse">
+      <div
+        class="flex flex-col items-center justify-center gap-10 lg:flex-row-reverse"
+      >
+        <div class="mb-6 text-center lg:hidden">
+          <h1 class="text-3xl font-bold md:text-5xl">Contact Us</h1>
+          <p class="py-2 text-sm md:text-base">
+            Have a question or need assistance? Get in touch with us, and we'll
+            be happy to help.
+          </p>
+        </div>
         <div
           class="card w-full max-w-sm flex-shrink-0 bg-base-100 shadow-2xl"
           id="contact-div"
         >
           <form
-            class="card-body"
+            class="card-body p-4 md:p-8"
             id="contact-form"
             action="https://api.web3forms.com/submit"
             method="POST"
@@ -62,20 +71,24 @@
                 required
               ></textarea>
             </div>
-            <div class="form-control mt-6">
-              <button class="btn btn-primary">Submit</button>
+            <div class="form-control mt-4">
+              <button class="btn btn-primary w-full">Submit</button>
             </div>
           </form>
         </div>
-        <div class="w-1/2 text-center lg:text-left">
-          <h1 class="text-5xl font-bold">Contact Us</h1>
-          <p class="py-6">
-            Have a question or need assistance? Get in touch with us, and we'll
-            be happy to help.
-          </p>
-          <h2 class="mb-4 text-2xl font-bold">Frequently Asked Questions</h2>
+        <div class="w-full text-center lg:w-1/2 lg:text-left">
+          <div class="hidden lg:block">
+            <h1 class="text-5xl font-bold">Contact Us</h1>
+            <p class="py-6">
+              Have a question or need assistance? Get in touch with us, and
+              we'll be happy to help.
+            </p>
+          </div>
+          <h2 class="mb-4 text-xl font-bold md:text-2xl">
+            Frequently Asked Questions
+          </h2>
           <div class="mb-6 lg:h-72 lg:overflow-y-scroll">
-            <div class="collapse mb-4 bg-primary-content">
+            <div class="collapse mb-4 bg-primary-content p-2 md:p-4">
               <input type="checkbox" />
               <div class="collapse-title text-xl font-medium">
                 What is the purpose of our AI club?
@@ -90,7 +103,7 @@
               </div>
             </div>
 
-            <div class="collapse mb-4 bg-primary-content">
+            <div class="collapse mb-4 bg-primary-content p-2 md:p-4">
               <input type="checkbox" />
               <div class="collapse-title text-xl font-medium">
                 Who can join the AI club?
@@ -105,7 +118,7 @@
               </div>
             </div>
 
-            <div class="collapse mb-4 bg-primary-content">
+            <div class="collapse mb-4 bg-primary-content p-2 md:p-4">
               <input type="checkbox" />
               <div class="collapse-title text-xl font-medium">
                 What activities does the AI club organize?
@@ -120,7 +133,7 @@
               </div>
             </div>
 
-            <div class="collapse mb-4 bg-primary-content">
+            <div class="collapse mb-4 bg-primary-content p-2 md:p-4">
               <input type="checkbox" />
               <div class="collapse-title text-xl font-medium">
                 How can I stay updated on club events?
@@ -134,7 +147,7 @@
               </div>
             </div>
 
-            <div class="collapse mb-4 bg-primary-content">
+            <div class="collapse mb-4 bg-primary-content p-2 md:p-4">
               <input type="checkbox" />
               <div class="collapse-title text-xl font-medium">
                 Do I need prior AI knowledge to participate?
