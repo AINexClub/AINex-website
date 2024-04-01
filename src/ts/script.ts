@@ -212,7 +212,7 @@ const executeEventsScript = async () => {
     const eventCards = eventItems!.map(createEventCard).join("");
 
     return `
-      <div class="h-screen lg:min-h-[85vh] overflow-y-scroll">
+      <div class="h-[85vh] overflow-y-scroll">
         <div class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-10 py-16">
           <div class="container mx-auto">
             <h2 class="mb-8 text-center text-4xl font-bold text-white">Participate in our Upcoming Event</h2>
@@ -547,8 +547,7 @@ const executeGalleryScript = async () => {
 
   // Render carousel
   function renderCarousel(): string {
-    let carouselHTML =
-      '<div class="carousel h-screen lg:h-[85vh] bg-base-200">';
+    let carouselHTML = '<div class="carousel h-[85vh] bg-base-200">';
 
     carouselItems.forEach(({ id, content, prevSlide, nextSlide }) => {
       carouselHTML += `
