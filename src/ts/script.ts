@@ -79,7 +79,6 @@ const executeContactScript = async () => {
 
         if (fetchError) {
           console.error("Error fetching user:", fetchError);
-          return;
         }
 
         // Handle existing user or insert new data
