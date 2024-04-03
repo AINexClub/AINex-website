@@ -68,6 +68,7 @@ const executeContactScript = async () => {
       const formData = new FormData(contactForm);
       const name = formData.get("name");
       const email = formData.get("email");
+      const form = formData.get("form");
       try {
         // Fetch the user's existing data based on the email
         const { data: existingUser, error: fetchError } = await supabase
@@ -98,7 +99,7 @@ const executeContactScript = async () => {
         // Insert the new form data
         const { error: insertError } = await supabase
           .from("users")
-          .insert({ name, email });
+          .insert({ name, email, form });
 
         if (insertError) {
           console.error("Error submitting form:", insertError);
@@ -151,11 +152,12 @@ const executeNewsScript = async () => {
       const formData = new FormData(newsForm);
       const name = formData.get("name");
       const email = formData.get("email");
+      const form = formData.get("form");
 
       try {
         const { error } = await supabase
           .from("users")
-          .upsert({ name, email }, { onConflict: "email" });
+          .upsert({ name, email, form }, { onConflict: "email" });
 
         if (error) {
           console.error("Error submitting form:", error);
@@ -342,11 +344,12 @@ const executeEventsScript = async () => {
       const formData = new FormData(participateForm);
       const name = formData.get("name");
       const email = formData.get("email");
+      const form = formData.get("form");
 
       try {
         const { error } = await supabase
           .from("users")
-          .upsert({ name, email }, { onConflict: "email" });
+          .upsert({ name, email, form }, { onConflict: "email" });
 
         if (error) {
           console.error("Error submitting form:", error);
@@ -438,11 +441,12 @@ const executeHomeScript = async () => {
       const formData = new FormData(homeForm);
       const name = formData.get("name");
       const email = formData.get("email");
+      const form = formData.get("form");
 
       try {
         const { error } = await supabase
           .from("users")
-          .upsert({ name, email }, { onConflict: "email" });
+          .upsert({ name, email, form }, { onConflict: "email" });
 
         if (error) {
           console.error("Error submitting form:", error);
