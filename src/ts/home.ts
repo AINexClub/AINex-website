@@ -68,12 +68,13 @@ export const executeHomeScript = async (
       const formData = new FormData(homeForm);
       const name = formData.get("name");
       const email = formData.get("email");
+      const phone = formData.get("phone-number");
       const form = formData.get("form");
 
       try {
         const { error } = await supabase
           .from("users")
-          .upsert({ name, email, form }, { onConflict: "email" });
+          .upsert({ name, email, phone, form }, { onConflict: "email" });
 
         if (error) {
           console.error("Error submitting form:", error);
