@@ -27,6 +27,9 @@ export const executeContactScript = async (
       const name = formData.get("name");
       const email = formData.get("email");
       const form = formData.get("form");
+      const message = formData.get("message");
+      const currentTimestamp = new Date().toISOString(); // Get the current timestamp
+
       try {
         // Fetch the user's existing data based on the email
         const { data: existingUser, error: fetchError } = await supabase
@@ -41,34 +44,43 @@ export const executeContactScript = async (
 
         // Handle existing user or insert new data
         if (existingUser) {
-          // User exists, delete their data first
-          const { error: deleteError } = await supabase
+          // User exists, update their data with the new message and timestamp
+          const updatedMessages = [
+            ...existingUser.messages,
+            `[${currentTimestamp}] ${message}`,
+          ];
+          const { error: updateError } = await supabase
             .from("users")
-            .delete()
+            .update({ messages: updatedMessages })
             .eq("email", email);
 
-          if (deleteError) {
-            console.error("Error deleting user:", deleteError);
+          if (updateError) {
+            console.error("Error updating user:", updateError);
+            return;
+          }
+        } else {
+          // Insert the new form data
+          const { error: insertError } = await supabase.from("users").insert({
+            name,
+            email,
+            form,
+            messages: [`[${currentTimestamp}] ${message}`],
+          });
+
+          if (insertError) {
+            console.error("Error submitting form:", insertError);
             return;
           }
         }
 
-        // Insert the new form data
-        const { error: insertError } = await supabase
-          .from("users")
-          .insert({ name, email, form });
-
-        if (insertError) {
-          console.error("Error submitting form:", insertError);
-        } else {
-          console.log("Form submitted successfully");
-          contactForm.style.display = "none"; // Hide the form
-          const thanksDiv = document.createElement("div");
-          thanksDiv.innerHTML = createThanksDiv();
-          const mainPage = document.getElementById("contact-div");
-          if (mainPage) {
-            mainPage.appendChild(thanksDiv);
-          }
+        // Display thank you message
+        console.log("Form submitted successfully");
+        contactForm.style.display = "none"; // Hide the form
+        const thanksDiv = document.createElement("div");
+        thanksDiv.innerHTML = createThanksDiv();
+        const mainPage = document.getElementById("contact-div");
+        if (mainPage) {
+          mainPage.appendChild(thanksDiv);
         }
       } catch (error) {
         console.error("Error submitting form:", error);
