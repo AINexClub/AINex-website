@@ -4,9 +4,11 @@ import { SupabaseClient } from "@supabase/supabase-js";
 function createMemberCard(member: any): string {
   return `
     <div class="card bg-base-200 shadow-xl">
+      <!-- Commenting out image section
       <figure>
         <img src="${member.image_url}" alt="Member" class="rounded-lg" />
       </figure>
+      -->
       <div class="card-body">
         <h3 class="card-title">${member.name}</h3>
         <p>${member.position}</p>
